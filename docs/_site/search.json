@@ -1,0 +1,378 @@
+[
+  {
+    "objectID": "uso.html",
+    "href": "uso.html",
+    "title": "Uso",
+    "section": "",
+    "text": "Antes de testar no cliente LLM, você pode confirmar localmente se o servidor está carregando corretamente:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\n@'\nimport asyncio\nfrom mcp_logic_analyzer.server import mcp\n\nasync def main():\n    tools = await mcp.list_tools()\n    resources = await mcp.list_resources()\n    prompts = await mcp.list_prompts()\n    print(\"TOOLS:\", [tool.name for tool in tools])\n    print(\"RESOURCES:\", [str(resource.uri) for resource in resources])\n    print(\"PROMPTS:\", [prompt.name for prompt in prompts])\n\nasyncio.run(main())\n'@ | python -B -",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Uso"
+    ]
+  },
+  {
+    "objectID": "uso.html#verificação-inicial",
+    "href": "uso.html#verificação-inicial",
+    "title": "Uso",
+    "section": "",
+    "text": "Antes de testar no cliente LLM, você pode confirmar localmente se o servidor está carregando corretamente:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\n@'\nimport asyncio\nfrom mcp_logic_analyzer.server import mcp\n\nasync def main():\n    tools = await mcp.list_tools()\n    resources = await mcp.list_resources()\n    prompts = await mcp.list_prompts()\n    print(\"TOOLS:\", [tool.name for tool in tools])\n    print(\"RESOURCES:\", [str(resource.uri) for resource in resources])\n    print(\"PROMPTS:\", [prompt.name for prompt in prompts])\n\nasyncio.run(main())\n'@ | python -B -",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Uso"
+    ]
+  },
+  {
+    "objectID": "uso.html#exemplos-de-teste",
+    "href": "uso.html#exemplos-de-teste",
+    "title": "Uso",
+    "section": "Exemplos de teste",
+    "text": "Exemplos de teste\n\nConsequência lógica proposicional\nUse a tool check_entailment com:\npremises = [\"Se chove, a rua molha.\", \"Chove.\"]\nconclusion = \"A rua molha.\"\nlogic_family = \"propositional\"\n\n\nFormalização em FOL\nUse a tool nl_parse_logic com:\ntext = \"Todo aluno estuda.\"\nlogic_family = \"fol\"\nreturn_alternatives = true\n\n\nAmbiguidade\nUse a tool detect_ambiguities no texto:\n\"Todo aluno leu um livro.\"\n\n\nInconsistência\nUse a tool check_consistency com:\npremises = [\"Todo professor pesquisa.\", \"Nenhum professor pesquisa.\"]\nlogic_family = \"fol\"",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Uso"
+    ]
+  },
+  {
+    "objectID": "referencia.html",
+    "href": "referencia.html",
+    "title": "Referência",
+    "section": "",
+    "text": "normalize_argument\nnl_parse_logic\ndetect_ambiguities\ncheck_consistency\ncheck_entailment\nfind_counterexample\nexplain_formalization",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Referência"
+    ]
+  },
+  {
+    "objectID": "referencia.html#tools-disponíveis",
+    "href": "referencia.html#tools-disponíveis",
+    "title": "Referência",
+    "section": "",
+    "text": "normalize_argument\nnl_parse_logic\ndetect_ambiguities\ncheck_consistency\ncheck_entailment\nfind_counterexample\nexplain_formalization",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Referência"
+    ]
+  },
+  {
+    "objectID": "referencia.html#resources-disponíveis",
+    "href": "referencia.html#resources-disponíveis",
+    "title": "Referência",
+    "section": "Resources disponíveis",
+    "text": "Resources disponíveis\n\nlogic://schemas/ast-v1\nlogic://examples/propositional\nlogic://examples/fol\nlogic://guides/ambiguity-taxonomy",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Referência"
+    ]
+  },
+  {
+    "objectID": "referencia.html#prompts-disponíveis",
+    "href": "referencia.html#prompts-disponíveis",
+    "title": "Referência",
+    "section": "Prompts disponíveis",
+    "text": "Prompts disponíveis\n\nformalize_argument\nteach_logic_step_by_step\nreview_formalization",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Referência"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "mcp-logic-analyzer",
+    "section": "",
+    "text": "O mcp-logic-analyzer é um servidor MCP em Python voltado para formalização lógica controlada, análise de consistência, verificação de consequência lógica e produção de explicações compreensíveis em linguagem natural.\nEsta V1 foi pensada para ser:\n\nprevisível;\nauditável;\ndidática;\nútil em fluxos com LLMs e ferramentas MCP.\n\nO serviço funciona melhor com textos curtos, estruturas argumentativas claras e padrões recorrentes de conectivos e quantificadores.",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "mcp-logic-analyzer"
+    ]
+  },
+  {
+    "objectID": "index.html#visão-geral",
+    "href": "index.html#visão-geral",
+    "title": "mcp-logic-analyzer",
+    "section": "",
+    "text": "O mcp-logic-analyzer é um servidor MCP em Python voltado para formalização lógica controlada, análise de consistência, verificação de consequência lógica e produção de explicações compreensíveis em linguagem natural.\nEsta V1 foi pensada para ser:\n\nprevisível;\nauditável;\ndidática;\nútil em fluxos com LLMs e ferramentas MCP.\n\nO serviço funciona melhor com textos curtos, estruturas argumentativas claras e padrões recorrentes de conectivos e quantificadores.",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "mcp-logic-analyzer"
+    ]
+  },
+  {
+    "objectID": "index.html#o-que-o-serviço-faz",
+    "href": "index.html#o-que-o-serviço-faz",
+    "title": "mcp-logic-analyzer",
+    "section": "O que o serviço faz",
+    "text": "O que o serviço faz\n\nformaliza enunciados simples em lógica proposicional;\nformaliza um fragmento controlado de lógica de primeira ordem;\ndetecta ambiguidades semânticas relevantes para formalização;\nverifica consistência entre premissas;\nverifica se premissas implicam uma conclusão;\nbusca contraexemplos simples;\nexplica a correspondência entre o texto natural e a fórmula lógica.",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "mcp-logic-analyzer"
+    ]
+  },
+  {
+    "objectID": "index.html#ferramentas-mcp-expostas",
+    "href": "index.html#ferramentas-mcp-expostas",
+    "title": "mcp-logic-analyzer",
+    "section": "Ferramentas MCP expostas",
+    "text": "Ferramentas MCP expostas\n\nnl_parse_logic\ndetect_ambiguities\ncheck_consistency\ncheck_entailment\nfind_counterexample\nexplain_formalization\nnormalize_argument",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "mcp-logic-analyzer"
+    ]
+  },
+  {
+    "objectID": "index.html#quando-usar",
+    "href": "index.html#quando-usar",
+    "title": "mcp-logic-analyzer",
+    "section": "Quando usar",
+    "text": "Quando usar\nO mcp-logic-analyzer é especialmente útil para:\n\napoio didático em lógica formal;\nrevisão de argumentos curtos em linguagem natural;\nanálise de consistência de regras escritas em texto;\nverificação de validade de inferências simples;\ndemonstrações de formalização com explicações passo a passo.",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "mcp-logic-analyzer"
+    ]
+  },
+  {
+    "objectID": "index.html#limites-da-v1",
+    "href": "index.html#limites-da-v1",
+    "title": "mcp-logic-analyzer",
+    "section": "Limites da V1",
+    "text": "Limites da V1\nEsta versão não foi desenhada para:\n\ntextos longos e muito ambíguos;\nanáfora complexa;\nlógica modal, temporal, deôntica ou epistêmica;\nlinguagem jurídica extensa sem simplificação;\nprova formal em assistentes como Lean ou Coq.",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "mcp-logic-analyzer"
+    ]
+  },
+  {
+    "objectID": "GUIA_DE_USO.html",
+    "href": "GUIA_DE_USO.html",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Esta documentação foi reorganizada em Quarto.\nUse as novas páginas:\n\nInício\nInstalação\nUso\nReferência\nSolução de problemas\n\n\n\n\nWindows com PowerShell\nPython 3.11+\ndiretório do projeto disponivel localmente\n\nNo ambiente atual, o projeto esta em:\nC:\\Projetos\\parser_logic_mcp\n\n\n\nparser_logic_mcp/\n  docs/\n    GUIA_DE_USO.md\n  src/\n    mcp_logic_analyzer/\n      server.py\n      config.py\n      models/\n      services/\n      adapters/\n      resources/\n  tests/\n  pyproject.toml\n  README.md\n\n\n\nAbra o PowerShell e execute:\ncd C:\\Projetos\\parser_logic_mcp\npython -m pip install -e .\nSe voce tambem quiser o pacote de testes:\npython -m pip install -e .[dev]\n\n\n\nPara testar o servidor diretamente:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\npython -m mcp_logic_analyzer.server\nImportante:\n\no processo fica em execucao esperando um cliente MCP;\nisso e normal;\no servidor usa stdio, entao nao abre uma pagina web nem uma porta HTTP por padrao.\n\nVoce tambem pode iniciar pelo script instalado:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\nmcp-logic-analyzer\n\n\n\nO MCP em si nao exige XML. A maioria dos clientes usa JSON, TOML ou uma interface grafica.\n\n\n{\n  \"mcpServers\": {\n    \"logic-analyzer\": {\n      \"command\": \"python\",\n      \"args\": [\"-m\", \"mcp_logic_analyzer.server\"],\n      \"cwd\": \"C:\\\\Projetos\\\\parser_logic_mcp\",\n      \"env\": {\n        \"PYTHONPATH\": \"C:\\\\Projetos\\\\parser_logic_mcp\\\\src\"\n      }\n    }\n  }\n}\n\n\n\n{\n  \"mcpServers\": {\n    \"logic-analyzer\": {\n      \"command\": \"mcp-logic-analyzer\",\n      \"args\": [],\n      \"cwd\": \"C:\\\\Projetos\\\\parser_logic_mcp\",\n      \"env\": {\n        \"PYTHONPATH\": \"C:\\\\Projetos\\\\parser_logic_mcp\\\\src\"\n      }\n    }\n  }\n}\n\n\n\nSe o cliente mostrar algo como:\nunexpected argument '-m' found\nisso significa que voce misturou as duas formas de inicializacao.\nUse:\n\ncommand = \"python\" com args = [\"-m\", \"mcp_logic_analyzer.server\"]\ncommand = \"mcp-logic-analyzer\" com args = []\n\nMas nao os dois ao mesmo tempo.\n\n\n\n\nAntes de testar no cliente, voce pode verificar localmente se o servidor foi registrado corretamente:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\n@'\nimport asyncio\nfrom mcp_logic_analyzer.server import mcp\n\nasync def main():\n    tools = await mcp.list_tools()\n    resources = await mcp.list_resources()\n    prompts = await mcp.list_prompts()\n    print(\"TOOLS:\", [tool.name for tool in tools])\n    print(\"RESOURCES:\", [str(resource.uri) for resource in resources])\n    print(\"PROMPTS:\", [prompt.name for prompt in prompts])\n\nasyncio.run(main())\n'@ | python -B -\nSaida esperada, aproximadamente:\nTOOLS: ['check_consistency', 'check_entailment', 'detect_ambiguities', 'explain_formalization', 'find_counterexample', 'nl_parse_logic', 'normalize_argument']\nRESOURCES: ['logic://examples/fol', 'logic://examples/propositional', 'logic://guides/ambiguity-taxonomy', 'logic://schemas/ast-v1']\nPROMPTS: ['formalize_argument', 'review_formalization', 'teach_logic_step_by_step']\n\n\n\nDepois que o cliente mostrar o MCP como conectado, abra uma conversa nova e force uma chamada explicita de tool.\n\n\nUse a tool check_entailment com:\npremises = [\"Se chove, a rua molha.\", \"Chove.\"]\nconclusion = \"A rua molha.\"\nlogic_family = \"propositional\"\nResultado esperado:\n\nentailed: true\nformalizacao proxima de (C -&gt; RM), C, RM\nexplicacao indicando implicacao valida\n\n\n\n\nUse a tool nl_parse_logic com:\ntext = \"Todo aluno estuda.\"\nlogic_family = \"fol\"\nreturn_alternatives = true\nResultado esperado:\n\nao menos uma candidata\nalgo como forall x. (Aluno(x) -&gt; Estuda(x))\n\n\n\n\nUse a tool detect_ambiguities no texto:\n\"Todo aluno leu um livro.\"\nResultado esperado:\n\nalerta de escopo de quantificador\n\n\n\n\nUse a tool check_consistency com:\npremises = [\"Todo professor pesquisa.\", \"Nenhum professor pesquisa.\"]\nlogic_family = \"fol\"\nResultado esperado:\n\nconsistent: false\nunsat_core: [0, 1]\n\n\n\n\nUse a tool find_counterexample com:\npremises = [\"Se estudo, passo.\", \"Passei.\"]\nconclusion = \"Estudei.\"\nlogic_family = \"propositional\"\nResultado esperado:\n\nfound: true\num modelo simples mostrando que a conclusao nao decorre das premissas\n\n\n\n\nUse a tool normalize_argument no texto:\n\"Se chove, a rua molha. Chove. Logo, a rua molha.\"\nResultado esperado:\n\npremissas separadas\nconclusao isolada\n\n\n\n\n\nEste e um teste bom para confirmar se o cliente consegue orquestrar varias tools do MCP:\nUse o MCP logic-analyzer para analisar o argumento:\n\"Se chove, a rua molha. Chove. Logo, a rua molha.\"\n\nExecute nesta ordem:\n1. normalize_argument\n2. nl_parse_logic para cada premissa e para a conclusao\n3. check_entailment\n4. explain_formalization para a premissa condicional\n\nNo final, mostre:\n- premissas e conclusao normalizadas\n- formalizacao logica\n- se o argumento e valido\n- explicacao em linguagem natural\n\n\n\n\n\nSepara texto corrido em premissas, conclusao e pressupostos implicitos.\nEntrada:\n{\n  \"text\": \"Se chove, a rua molha. Chove. Logo, a rua molha.\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"premises\": [\"Se chove, a rua molha\", \"Chove\"],\n  \"conclusion\": \"a rua molha\",\n  \"implicit_assumptions\": []\n}\n\n\n\nConverte linguagem natural em uma ou mais formalizacoes candidatas.\nEntrada:\n{\n  \"text\": \"Todo aluno estuda.\",\n  \"logic_family\": \"fol\",\n  \"return_alternatives\": true\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"fol\",\n  \"candidates\": [\n    {\n      \"logic_family\": \"fol\",\n      \"surface_form\": \"forall x. (Aluno(x) -&gt; Estuda(x))\",\n      \"confidence\": 0.93\n    }\n  ]\n}\n\n\n\nIdentifica ambiguidades semanticas relevantes para formalizacao.\nEntrada:\n{\n  \"text\": \"Maria nao convidou Ana ou Beatriz.\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"reports\": [\n    {\n      \"kind\": \"disjunction\",\n      \"message\": \"A palavra 'ou' pode ser inclusiva ou exclusiva em linguagem natural.\"\n    },\n    {\n      \"kind\": \"negation_scope\",\n      \"message\": \"A negacao pode ter escopo sobre apenas uma clausula ou sobre a disjuncao inteira.\"\n    }\n  ]\n}\n\n\n\nVerifica se um conjunto de premissas e satisfativel.\nEntrada:\n{\n  \"premises\": [\n    \"Todo professor pesquisa.\",\n    \"Nenhum professor pesquisa.\"\n  ],\n  \"logic_family\": \"fol\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"fol\",\n  \"consistent\": false,\n  \"unsat_core\": [0, 1]\n}\n\n\n\nVerifica se as premissas implicam a conclusao.\nEntrada:\n{\n  \"premises\": [\n    \"Se chove, a rua molha.\",\n    \"Chove.\"\n  ],\n  \"conclusion\": \"A rua molha.\",\n  \"logic_family\": \"propositional\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"propositional\",\n  \"entailed\": true,\n  \"proof_sketch\": \"Modus ponens ou encadeamento proposicional simples.\"\n}\n\n\n\nBusca um contraexemplo quando a conclusao nao decorre das premissas.\nEntrada:\n{\n  \"premises\": [\n    \"Se estudo, passo.\",\n    \"Passei.\"\n  ],\n  \"conclusion\": \"Estudei.\",\n  \"logic_family\": \"propositional\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"propositional\",\n  \"found\": true,\n  \"counterexample\": {\n    \"E\": false,\n    \"P\": true\n  }\n}\n\n\n\nExplica a correspondencia entre o texto e a formula obtida.\nEntrada:\n{\n  \"text\": \"Todo aluno estuda.\",\n  \"logic_family\": \"fol\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"fol\",\n  \"explanation\": \"A formula quantifica universalmente sobre x: para todo elemento do dominio, (Aluno(x) -&gt; Estuda(x)).\"\n}\n\n\n\n\nO servidor tambem publica os seguintes resources:\n\nlogic://schemas/ast-v1\nlogic://examples/propositional\nlogic://examples/fol\nlogic://guides/ambiguity-taxonomy\n\n\n\n\nO servidor publica estes prompts MCP:\n\nformalize_argument\nteach_logic_step_by_step\nreview_formalization\n\n\n\n\n\n\n\nmodus ponens\nmodus tollens\ndisjuncao simples\nquantificadores basicos como todo, nenhum, algum\ncontradicoes canonicas entre regras curtas\n\n\n\n\n\nou inclusivo vs exclusivo\nescopo de negacao\nescopo de quantificadores\ntextos com anexacao ambigua como com o telescopio\n\n\n\n\n\ntextos longos\nanafora complexa\nlogica modal, temporal, deontica ou epistemica\nlinguagem juridica longa sem simplificacao\n\n\n\n\n\nSe voce quiser validar a base sem depender do cliente MCP:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\n@'\nfrom tests.test_parse import test_normalize_argument_extracts_conclusion, test_parse_propositional_conditional, test_parse_fol_universal, test_parse_fol_ambiguity_alternative\nfrom tests.test_entailment import test_modus_ponens, test_modus_tollens, test_affirming_the_consequent_is_not_entailed, test_fol_simple_entailment\nfrom tests.test_consistency import test_propositional_consistency, test_fol_inconsistency\nfrom tests.test_ambiguity import test_detects_quantifier_scope_ambiguity, test_detects_negation_scope_ambiguity\n\nfor fn in [\n    test_normalize_argument_extracts_conclusion,\n    test_parse_propositional_conditional,\n    test_parse_fol_universal,\n    test_parse_fol_ambiguity_alternative,\n    test_modus_ponens,\n    test_modus_tollens,\n    test_affirming_the_consequent_is_not_entailed,\n    test_fol_simple_entailment,\n    test_propositional_consistency,\n    test_fol_inconsistency,\n    test_detects_quantifier_scope_ambiguity,\n    test_detects_negation_scope_ambiguity,\n]:\n    fn()\n    print(\"ok\", fn.__name__)\n'@ | python -B -\n\n\n\n\n\nVerifique:\n\nse o cwd esta correto;\nse PYTHONPATH aponta para ...\\src;\nse voce usou python -m ... ou mcp-logic-analyzer de forma consistente;\nse o pacote foi instalado com python -m pip install -e ..\n\n\n\n\nVoce configurou o comando errado. Corrija conforme a secao de configuracao.\n\n\n\nTeste localmente com:\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\n@'\nimport asyncio\nfrom mcp_logic_analyzer.server import mcp\n\nasync def main():\n    tools = await mcp.list_tools()\n    print([tool.name for tool in tools])\n\nasyncio.run(main())\n'@ | python -B -\n\n\n\nA V1 usa heuristicas controladas. Simplifique o texto, reduza ambiguidades e prefira frases curtas.\n\n\n\n\nSe voce quiser evoluir o servico, as proximas melhorias mais naturais sao:\n\nampliar o fragmento FOL suportado;\nadicionar mais formalizacoes candidatas para casos ambiguos;\nintegrar Z3 de forma mais profunda para modelos e provas;\ncriar uma interface web demo;\nregistrar logs e telemetria de uso para depurar formalizacoes ruins."
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#requisitos",
+    "href": "GUIA_DE_USO.html#requisitos",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Windows com PowerShell\nPython 3.11+\ndiretório do projeto disponivel localmente\n\nNo ambiente atual, o projeto esta em:\nC:\\Projetos\\parser_logic_mcp"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#estrutura-do-projeto",
+    "href": "GUIA_DE_USO.html#estrutura-do-projeto",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "parser_logic_mcp/\n  docs/\n    GUIA_DE_USO.md\n  src/\n    mcp_logic_analyzer/\n      server.py\n      config.py\n      models/\n      services/\n      adapters/\n      resources/\n  tests/\n  pyproject.toml\n  README.md"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#passo-1.-instalar-as-dependencias",
+    "href": "GUIA_DE_USO.html#passo-1.-instalar-as-dependencias",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Abra o PowerShell e execute:\ncd C:\\Projetos\\parser_logic_mcp\npython -m pip install -e .\nSe voce tambem quiser o pacote de testes:\npython -m pip install -e .[dev]"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#passo-2.-subir-o-servidor-manualmente",
+    "href": "GUIA_DE_USO.html#passo-2.-subir-o-servidor-manualmente",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Para testar o servidor diretamente:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\npython -m mcp_logic_analyzer.server\nImportante:\n\no processo fica em execucao esperando um cliente MCP;\nisso e normal;\no servidor usa stdio, entao nao abre uma pagina web nem uma porta HTTP por padrao.\n\nVoce tambem pode iniciar pelo script instalado:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\nmcp-logic-analyzer"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#passo-3.-configurar-no-cliente-mcp",
+    "href": "GUIA_DE_USO.html#passo-3.-configurar-no-cliente-mcp",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "O MCP em si nao exige XML. A maioria dos clientes usa JSON, TOML ou uma interface grafica.\n\n\n{\n  \"mcpServers\": {\n    \"logic-analyzer\": {\n      \"command\": \"python\",\n      \"args\": [\"-m\", \"mcp_logic_analyzer.server\"],\n      \"cwd\": \"C:\\\\Projetos\\\\parser_logic_mcp\",\n      \"env\": {\n        \"PYTHONPATH\": \"C:\\\\Projetos\\\\parser_logic_mcp\\\\src\"\n      }\n    }\n  }\n}\n\n\n\n{\n  \"mcpServers\": {\n    \"logic-analyzer\": {\n      \"command\": \"mcp-logic-analyzer\",\n      \"args\": [],\n      \"cwd\": \"C:\\\\Projetos\\\\parser_logic_mcp\",\n      \"env\": {\n        \"PYTHONPATH\": \"C:\\\\Projetos\\\\parser_logic_mcp\\\\src\"\n      }\n    }\n  }\n}\n\n\n\nSe o cliente mostrar algo como:\nunexpected argument '-m' found\nisso significa que voce misturou as duas formas de inicializacao.\nUse:\n\ncommand = \"python\" com args = [\"-m\", \"mcp_logic_analyzer.server\"]\ncommand = \"mcp-logic-analyzer\" com args = []\n\nMas nao os dois ao mesmo tempo."
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#passo-4.-verificar-se-o-servidor-foi-carregado",
+    "href": "GUIA_DE_USO.html#passo-4.-verificar-se-o-servidor-foi-carregado",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Antes de testar no cliente, voce pode verificar localmente se o servidor foi registrado corretamente:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\n@'\nimport asyncio\nfrom mcp_logic_analyzer.server import mcp\n\nasync def main():\n    tools = await mcp.list_tools()\n    resources = await mcp.list_resources()\n    prompts = await mcp.list_prompts()\n    print(\"TOOLS:\", [tool.name for tool in tools])\n    print(\"RESOURCES:\", [str(resource.uri) for resource in resources])\n    print(\"PROMPTS:\", [prompt.name for prompt in prompts])\n\nasyncio.run(main())\n'@ | python -B -\nSaida esperada, aproximadamente:\nTOOLS: ['check_consistency', 'check_entailment', 'detect_ambiguities', 'explain_formalization', 'find_counterexample', 'nl_parse_logic', 'normalize_argument']\nRESOURCES: ['logic://examples/fol', 'logic://examples/propositional', 'logic://guides/ambiguity-taxonomy', 'logic://schemas/ast-v1']\nPROMPTS: ['formalize_argument', 'review_formalization', 'teach_logic_step_by_step']"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#passo-5.-testar-no-cliente-llm",
+    "href": "GUIA_DE_USO.html#passo-5.-testar-no-cliente-llm",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Depois que o cliente mostrar o MCP como conectado, abra uma conversa nova e force uma chamada explicita de tool.\n\n\nUse a tool check_entailment com:\npremises = [\"Se chove, a rua molha.\", \"Chove.\"]\nconclusion = \"A rua molha.\"\nlogic_family = \"propositional\"\nResultado esperado:\n\nentailed: true\nformalizacao proxima de (C -&gt; RM), C, RM\nexplicacao indicando implicacao valida\n\n\n\n\nUse a tool nl_parse_logic com:\ntext = \"Todo aluno estuda.\"\nlogic_family = \"fol\"\nreturn_alternatives = true\nResultado esperado:\n\nao menos uma candidata\nalgo como forall x. (Aluno(x) -&gt; Estuda(x))\n\n\n\n\nUse a tool detect_ambiguities no texto:\n\"Todo aluno leu um livro.\"\nResultado esperado:\n\nalerta de escopo de quantificador\n\n\n\n\nUse a tool check_consistency com:\npremises = [\"Todo professor pesquisa.\", \"Nenhum professor pesquisa.\"]\nlogic_family = \"fol\"\nResultado esperado:\n\nconsistent: false\nunsat_core: [0, 1]\n\n\n\n\nUse a tool find_counterexample com:\npremises = [\"Se estudo, passo.\", \"Passei.\"]\nconclusion = \"Estudei.\"\nlogic_family = \"propositional\"\nResultado esperado:\n\nfound: true\num modelo simples mostrando que a conclusao nao decorre das premissas\n\n\n\n\nUse a tool normalize_argument no texto:\n\"Se chove, a rua molha. Chove. Logo, a rua molha.\"\nResultado esperado:\n\npremissas separadas\nconclusao isolada"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#passo-6.-testar-uma-analise-encadeada",
+    "href": "GUIA_DE_USO.html#passo-6.-testar-uma-analise-encadeada",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Este e um teste bom para confirmar se o cliente consegue orquestrar varias tools do MCP:\nUse o MCP logic-analyzer para analisar o argumento:\n\"Se chove, a rua molha. Chove. Logo, a rua molha.\"\n\nExecute nesta ordem:\n1. normalize_argument\n2. nl_parse_logic para cada premissa e para a conclusao\n3. check_entailment\n4. explain_formalization para a premissa condicional\n\nNo final, mostre:\n- premissas e conclusao normalizadas\n- formalizacao logica\n- se o argumento e valido\n- explicacao em linguagem natural"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#tools-disponiveis",
+    "href": "GUIA_DE_USO.html#tools-disponiveis",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Separa texto corrido em premissas, conclusao e pressupostos implicitos.\nEntrada:\n{\n  \"text\": \"Se chove, a rua molha. Chove. Logo, a rua molha.\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"premises\": [\"Se chove, a rua molha\", \"Chove\"],\n  \"conclusion\": \"a rua molha\",\n  \"implicit_assumptions\": []\n}\n\n\n\nConverte linguagem natural em uma ou mais formalizacoes candidatas.\nEntrada:\n{\n  \"text\": \"Todo aluno estuda.\",\n  \"logic_family\": \"fol\",\n  \"return_alternatives\": true\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"fol\",\n  \"candidates\": [\n    {\n      \"logic_family\": \"fol\",\n      \"surface_form\": \"forall x. (Aluno(x) -&gt; Estuda(x))\",\n      \"confidence\": 0.93\n    }\n  ]\n}\n\n\n\nIdentifica ambiguidades semanticas relevantes para formalizacao.\nEntrada:\n{\n  \"text\": \"Maria nao convidou Ana ou Beatriz.\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"reports\": [\n    {\n      \"kind\": \"disjunction\",\n      \"message\": \"A palavra 'ou' pode ser inclusiva ou exclusiva em linguagem natural.\"\n    },\n    {\n      \"kind\": \"negation_scope\",\n      \"message\": \"A negacao pode ter escopo sobre apenas uma clausula ou sobre a disjuncao inteira.\"\n    }\n  ]\n}\n\n\n\nVerifica se um conjunto de premissas e satisfativel.\nEntrada:\n{\n  \"premises\": [\n    \"Todo professor pesquisa.\",\n    \"Nenhum professor pesquisa.\"\n  ],\n  \"logic_family\": \"fol\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"fol\",\n  \"consistent\": false,\n  \"unsat_core\": [0, 1]\n}\n\n\n\nVerifica se as premissas implicam a conclusao.\nEntrada:\n{\n  \"premises\": [\n    \"Se chove, a rua molha.\",\n    \"Chove.\"\n  ],\n  \"conclusion\": \"A rua molha.\",\n  \"logic_family\": \"propositional\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"propositional\",\n  \"entailed\": true,\n  \"proof_sketch\": \"Modus ponens ou encadeamento proposicional simples.\"\n}\n\n\n\nBusca um contraexemplo quando a conclusao nao decorre das premissas.\nEntrada:\n{\n  \"premises\": [\n    \"Se estudo, passo.\",\n    \"Passei.\"\n  ],\n  \"conclusion\": \"Estudei.\",\n  \"logic_family\": \"propositional\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"propositional\",\n  \"found\": true,\n  \"counterexample\": {\n    \"E\": false,\n    \"P\": true\n  }\n}\n\n\n\nExplica a correspondencia entre o texto e a formula obtida.\nEntrada:\n{\n  \"text\": \"Todo aluno estuda.\",\n  \"logic_family\": \"fol\"\n}\nSaida tipica:\n{\n  \"status\": \"ok\",\n  \"logic_family\": \"fol\",\n  \"explanation\": \"A formula quantifica universalmente sobre x: para todo elemento do dominio, (Aluno(x) -&gt; Estuda(x)).\"\n}"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#resources-disponiveis",
+    "href": "GUIA_DE_USO.html#resources-disponiveis",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "O servidor tambem publica os seguintes resources:\n\nlogic://schemas/ast-v1\nlogic://examples/propositional\nlogic://examples/fol\nlogic://guides/ambiguity-taxonomy"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#prompts-disponiveis",
+    "href": "GUIA_DE_USO.html#prompts-disponiveis",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "O servidor publica estes prompts MCP:\n\nformalize_argument\nteach_logic_step_by_step\nreview_formalization"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#comportamento-logico-observado-nesta-v1",
+    "href": "GUIA_DE_USO.html#comportamento-logico-observado-nesta-v1",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "modus ponens\nmodus tollens\ndisjuncao simples\nquantificadores basicos como todo, nenhum, algum\ncontradicoes canonicas entre regras curtas\n\n\n\n\n\nou inclusivo vs exclusivo\nescopo de negacao\nescopo de quantificadores\ntextos com anexacao ambigua como com o telescopio\n\n\n\n\n\ntextos longos\nanafora complexa\nlogica modal, temporal, deontica ou epistemica\nlinguagem juridica longa sem simplificacao"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#validacao-local-do-projeto",
+    "href": "GUIA_DE_USO.html#validacao-local-do-projeto",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Se voce quiser validar a base sem depender do cliente MCP:\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\n@'\nfrom tests.test_parse import test_normalize_argument_extracts_conclusion, test_parse_propositional_conditional, test_parse_fol_universal, test_parse_fol_ambiguity_alternative\nfrom tests.test_entailment import test_modus_ponens, test_modus_tollens, test_affirming_the_consequent_is_not_entailed, test_fol_simple_entailment\nfrom tests.test_consistency import test_propositional_consistency, test_fol_inconsistency\nfrom tests.test_ambiguity import test_detects_quantifier_scope_ambiguity, test_detects_negation_scope_ambiguity\n\nfor fn in [\n    test_normalize_argument_extracts_conclusion,\n    test_parse_propositional_conditional,\n    test_parse_fol_universal,\n    test_parse_fol_ambiguity_alternative,\n    test_modus_ponens,\n    test_modus_tollens,\n    test_affirming_the_consequent_is_not_entailed,\n    test_fol_simple_entailment,\n    test_propositional_consistency,\n    test_fol_inconsistency,\n    test_detects_quantifier_scope_ambiguity,\n    test_detects_negation_scope_ambiguity,\n]:\n    fn()\n    print(\"ok\", fn.__name__)\n'@ | python -B -"
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#solucao-de-problemas",
+    "href": "GUIA_DE_USO.html#solucao-de-problemas",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Verifique:\n\nse o cwd esta correto;\nse PYTHONPATH aponta para ...\\src;\nse voce usou python -m ... ou mcp-logic-analyzer de forma consistente;\nse o pacote foi instalado com python -m pip install -e ..\n\n\n\n\nVoce configurou o comando errado. Corrija conforme a secao de configuracao.\n\n\n\nTeste localmente com:\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\n@'\nimport asyncio\nfrom mcp_logic_analyzer.server import mcp\n\nasync def main():\n    tools = await mcp.list_tools()\n    print([tool.name for tool in tools])\n\nasyncio.run(main())\n'@ | python -B -\n\n\n\nA V1 usa heuristicas controladas. Simplifique o texto, reduza ambiguidades e prefira frases curtas."
+  },
+  {
+    "objectID": "GUIA_DE_USO.html#proximos-passos-recomendados",
+    "href": "GUIA_DE_USO.html#proximos-passos-recomendados",
+    "title": "Guia de uso antigo",
+    "section": "",
+    "text": "Se voce quiser evoluir o servico, as proximas melhorias mais naturais sao:\n\nampliar o fragmento FOL suportado;\nadicionar mais formalizacoes candidatas para casos ambiguos;\nintegrar Z3 de forma mais profunda para modelos e provas;\ncriar uma interface web demo;\nregistrar logs e telemetria de uso para depurar formalizacoes ruins."
+  },
+  {
+    "objectID": "instalacao.html",
+    "href": "instalacao.html",
+    "title": "Instalação",
+    "section": "",
+    "text": "Windows com PowerShell;\nPython 3.11 ou superior;\nacesso ao diretório do projeto.\n\nNo ambiente atual, o projeto está em:\nC:\\Projetos\\parser_logic_mcp",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Instalação"
+    ]
+  },
+  {
+    "objectID": "instalacao.html#requisitos",
+    "href": "instalacao.html#requisitos",
+    "title": "Instalação",
+    "section": "",
+    "text": "Windows com PowerShell;\nPython 3.11 ou superior;\nacesso ao diretório do projeto.\n\nNo ambiente atual, o projeto está em:\nC:\\Projetos\\parser_logic_mcp",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Instalação"
+    ]
+  },
+  {
+    "objectID": "instalacao.html#instalação-local",
+    "href": "instalacao.html#instalação-local",
+    "title": "Instalação",
+    "section": "Instalação local",
+    "text": "Instalação local\nAbra o PowerShell e execute:\ncd C:\\Projetos\\parser_logic_mcp\npython -m pip install -e .\nSe você também quiser instalar as dependências de desenvolvimento:\npython -m pip install -e .[dev]",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Instalação"
+    ]
+  },
+  {
+    "objectID": "instalacao.html#como-iniciar-o-servidor",
+    "href": "instalacao.html#como-iniciar-o-servidor",
+    "title": "Instalação",
+    "section": "Como iniciar o servidor",
+    "text": "Como iniciar o servidor\n\nOpção A: usando python -m\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\npython -m mcp_logic_analyzer.server\n\n\nOpção B: usando o script instalado\ncd C:\\Projetos\\parser_logic_mcp\n$env:PYTHONPATH = \"C:\\Projetos\\parser_logic_mcp\\src\"\nmcp-logic-analyzer",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Instalação"
+    ]
+  },
+  {
+    "objectID": "instalacao.html#configuração-no-cliente-mcp",
+    "href": "instalacao.html#configuração-no-cliente-mcp",
+    "title": "Instalação",
+    "section": "Configuração no cliente MCP",
+    "text": "Configuração no cliente MCP\n\nConfiguração com python\n{\n  \"mcpServers\": {\n    \"logic-analyzer\": {\n      \"command\": \"python\",\n      \"args\": [\"-m\", \"mcp_logic_analyzer.server\"],\n      \"cwd\": \"C:\\\\Projetos\\\\parser_logic_mcp\",\n      \"env\": {\n        \"PYTHONPATH\": \"C:\\\\Projetos\\\\parser_logic_mcp\\\\src\"\n      }\n    }\n  }\n}\n\n\nConfiguração com mcp-logic-analyzer\n{\n  \"mcpServers\": {\n    \"logic-analyzer\": {\n      \"command\": \"mcp-logic-analyzer\",\n      \"args\": [],\n      \"cwd\": \"C:\\\\Projetos\\\\parser_logic_mcp\",\n      \"env\": {\n        \"PYTHONPATH\": \"C:\\\\Projetos\\\\parser_logic_mcp\\\\src\"\n      }\n    }\n  }\n}",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Instalação"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html",
+    "href": "troubleshooting.html",
+    "title": "Solução de problemas",
+    "section": "",
+    "text": "Verifique:\n\nse o cwd está correto;\nse PYTHONPATH aponta para ...\\src;\nse você usou python -m ... ou mcp-logic-analyzer de forma consistente;\nse o pacote foi instalado com python -m pip install -e ..",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Solução de problemas"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#o-cliente-diz-que-o-servidor-não-conecta",
+    "href": "troubleshooting.html#o-cliente-diz-que-o-servidor-não-conecta",
+    "title": "Solução de problemas",
+    "section": "",
+    "text": "Verifique:\n\nse o cwd está correto;\nse PYTHONPATH aponta para ...\\src;\nse você usou python -m ... ou mcp-logic-analyzer de forma consistente;\nse o pacote foi instalado com python -m pip install -e ..",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Solução de problemas"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#aparece-unexpected-argument--m-found",
+    "href": "troubleshooting.html#aparece-unexpected-argument--m-found",
+    "title": "Solução de problemas",
+    "section": "Aparece unexpected argument '-m' found",
+    "text": "Aparece unexpected argument '-m' found\nVocê configurou o comando errado.\nCorreto:\n\ncommand = \"python\" com args = [\"-m\", \"mcp_logic_analyzer.server\"]\ncommand = \"mcp-logic-analyzer\" com args = []",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Solução de problemas"
+    ]
+  },
+  {
+    "objectID": "troubleshooting.html#como-publicar-a-documentação-quarto",
+    "href": "troubleshooting.html#como-publicar-a-documentação-quarto",
+    "title": "Solução de problemas",
+    "section": "Como publicar a documentação Quarto",
+    "text": "Como publicar a documentação Quarto\nSe você tiver o Quarto instalado:\ncd C:\\Projetos\\parser_logic_mcp\\docs\nquarto render",
+    "crumbs": [
+      "Início",
+      "Documentação",
+      "Solução de problemas"
+    ]
+  }
+]
